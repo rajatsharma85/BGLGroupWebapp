@@ -1,0 +1,23 @@
+﻿@model BGLWebApp.Models.GithubUser
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-4">
+    <h2>Enter a Github Username</h2>
+
+    @using (Html.BeginForm("GitUserResults", "Home", FormMethod.Post))
+    {
+        <div>
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+        </div>
+        <div class="paddingtop">
+            <input type="submit" name="submitButton" class="btn btn-default" value="Get User Details" />
+        </div>
+    }
+
+
+    </div>
+
+</div>

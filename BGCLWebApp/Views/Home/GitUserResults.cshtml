@@ -1,0 +1,57 @@
+﻿@using BGLWebApp.Models
+@model BGLWebApp.Models.GithubUser
+
+@{
+    ViewBag.Title = "Github User Information";
+}
+
+<h2><a href="/">Home</a> &gt; Github User Details</h2>
+
+<div class="table-responsive">
+    <table class="table">
+       
+        <tbody>
+            <tr>
+                <td>UserName</td>
+                <td>@Model.UserName.ToLower()</td>
+            </tr>
+           
+            <tr>
+                <td>Avatar</td>
+               <td><img src=" @Model.AvatarUrl" alt="@Model.DisplayName" /></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>@Model.DisplayName</td>
+            </tr>
+            <tr>
+                <td>Location</td>
+                <td>@Model.Location</td>
+            </tr>
+            <tr>
+                <td>Repo Details</td>
+                <td>
+                    <table class="table">
+                        @foreach (var repo in Model.UserRepos)
+                        {
+                            <tr>
+                                <td>
+                                    <span>
+                                        Repo Name: @repo.RepoName <br />
+                                        Repo Url: @repo.RepoUrl <br />
+                                        Stargazer Count: @repo.RepoStartgazerCount
+                                    </span>
+                                </td>
+
+                            </tr>
+                        }
+
+
+                     </table>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div> 
+
